@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 // External Packages
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 import { FiSearch, FiSliders } from 'react-icons/fi';
 
 // Internal Components
@@ -10,14 +10,10 @@ import { Item } from 'primaries/SharedStyling';
 import Feedbox from 'segments/Feedbox';
 import SpamBox from 'segments/spam';
 
-// Internal Configs
-import GLOBALS from 'config/Globals';
-
 const InboxComponent = () => {
   const [showInbox, setShowInbox] = useState(true);
   const [showFilter, setShowFilter] = useState(false);
   const [search, setSearch] = useState('');
-  const themes = useTheme();
 
   const toggleShowInbox = () => setShowInbox((prev) => !prev);
   const toggleShowFilter = () => setShowFilter((prev) => !prev);
