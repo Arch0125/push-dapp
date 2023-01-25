@@ -5,7 +5,7 @@ import React from "react";
 import styled from "styled-components";
 
 // Internal components
-import SpamBox from "segments/spam";
+import SpamBox from "sections/inbox/spam";
 
 // Create Header
 function Spambox(props) {

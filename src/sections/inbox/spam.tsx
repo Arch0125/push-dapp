@@ -23,12 +23,12 @@ import {
   setFinishedFetching,
   updateTopNotifications
 } from 'redux/slices/spamSlice';
-import SearchFilter from '../components/SearchFilter';
-import DisplayNotice from '../primaries/DisplayNotice';
-import NotificationToast from '../primaries/NotificationToast';
+import SearchFilter from '../../components/SearchFilter';
+import DisplayNotice from '../../primaries/DisplayNotice';
+import NotificationToast from '../../primaries/NotificationToast';
 import useToast from 'hooks/useToast';
 import { updateSubscriptionStatus } from 'redux/slices/channelSlice';
-import { ScrollItem } from './ViewChannels';
+import { ScrollItem } from '../../segments/ViewChannels';
 
 // Internal Configs
 import { appConfig } from "config";

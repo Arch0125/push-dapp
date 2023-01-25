@@ -6,7 +6,7 @@ import ReactGA from "react-ga";
 import styled from "styled-components";
 
 // Internal Components
-import Spambox from "segments/Spambox";
+import Spambox from "sections/inbox/Spambox";
 
 // Create Header
 function InboxPage() {

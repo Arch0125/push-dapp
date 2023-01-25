@@ -7,8 +7,8 @@ import { FiSearch, FiSliders } from 'react-icons/fi';
 
 // Internal Components
 import { Item } from 'primaries/SharedStyling';
-import Feedbox from 'segments/Feedbox';
-import SpamBox from 'segments/spam';
+import Feedbox from 'sections/inbox/Feedbox';
+import SpamBox from 'sections/inbox/spam';
 
 const InboxComponent = () => {
   const [showInbox, setShowInbox] = useState(true);

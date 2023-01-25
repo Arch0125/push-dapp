@@ -23,9 +23,9 @@ import {
   setFinishedFetching,
   updateTopNotifications
 } from "redux/slices/notificationSlice";
-import DisplayNotice from "../primaries/DisplayNotice";
-import NotificationToast from "../primaries/NotificationToast";
-import { ScrollItem } from "./ViewChannels";
+import DisplayNotice from "../../primaries/DisplayNotice";
+import NotificationToast from "../../primaries/NotificationToast";
+import { ScrollItem } from "../../segments/ViewChannels";
 
 // Internal Configs
 import { appConfig } from "config";
