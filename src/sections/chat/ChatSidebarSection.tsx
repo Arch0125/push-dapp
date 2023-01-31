@@ -33,7 +33,7 @@ import { useClickAway } from 'react-use';
 
 // Chat Sections
 // Divided into two, left and right
-const ChatSidebarSection = () => {
+const ChatSidebarSection = ():JSX.Element => {
   // theme context
   const theme = useTheme();
 
@@ -42,14 +42,14 @@ const ChatSidebarSection = () => {
   const {connectedUser, displayQR, setDisplayQR} = useContext(ChatUserContext);
 
   const { activeTab, setActiveTab } = useContext(Context);
-  const [updateProfileImage, setUserProfileImage] = useState(connectedUser.profilePicture);
+  const [updateProfileImage, setUserProfileImage] = useState<string>(connectedUser.profilePicture);
 
   const { chainId, account } = useWeb3React<Web3Provider>();
-  const [loadingRequests, setLoadingRequests] = useState(true);
+  const [loadingRequests, setLoadingRequests] = useState<boolean>(true);
   const [showQR, setShowQR] = useState<boolean>(false);
   const containerRef = React.useRef(null);
 
-  const updateProfile = (image: string) => {
+  const updateProfile = (image: string):void => {
     setUserProfileImage(image);
   };
 
@@ -59,13 +59,13 @@ const ChatSidebarSection = () => {
     resolveThreadhash();
   }, []);
 
-  const closeQRDropdown = ()=>{
+  const closeQRDropdown = ():void=>{
     setShowQR(false);
 }
 useClickAway(containerRef, () => closeQRDropdown())
 
   async function resolveThreadhash(): Promise<void> {
-    let getIntent;
+    let getIntent:any;
     if (checkConnectedUser(connectedUser)) {
       getIntent = await intitializeDb<string>('Read', 'Intent', w2wHelper.walletToCAIP10({ account, chainId }), '', 'did');
     }
@@ -83,7 +83,7 @@ useClickAway(containerRef, () => closeQRDropdown())
   const fetchIntentApi = async (): Promise<Feeds[]> => {
     // If the user is not registered in the protocol yet, his did will be his wallet address
     const didOrWallet: string = connectedUser.wallets.split(',')[0];
-    let intents = await fetchIntent({ userId: didOrWallet, intentStatus: 'Pending' });
+    let intents:Feeds[] = await fetchIntent({ userId: didOrWallet, intentStatus: 'Pending' });
     await intitializeDb<Feeds[]>('Insert', 'Intent', w2wHelper.walletToCAIP10({ account, chainId }),intents, 'did');
     intents = await w2wHelper.decryptFeeds({ feeds: intents, connectedUser });
     if(JSON.stringify(intents) != JSON.stringify(receivedIntents)) {
@@ -98,8 +98,8 @@ useClickAway(containerRef, () => closeQRDropdown())
   useEffect(() => {
     if (!loadingRequests) {
       //setup timer
-      const delay = 5;
-      let timer = setInterval(() => fetchIntentApi(), delay * 1000);
+      const delay:number = 5;
+      let timer:NodeJS.Timer = setInterval(() => fetchIntentApi(), delay * 1000);
 
       // this will clear Timeout
       // when component unmount like in willComponentUnmount
@@ -125,7 +125,7 @@ useClickAway(containerRef, () => closeQRDropdown())
               color={theme.default.color}
               flex="1"
               padding="10px 10px 20px 10px"
-              onClick={() => {
+              onClick={():void => {
                 setActiveTab(0);
               }}
             >
@@ -145,7 +145,7 @@ useClickAway(containerRef, () => closeQRDropdown())
               color={theme.default.color}
               flex="1"
               padding="10px 10px 20px 10px"
-              onClick={() => {
+              onClick={():void => {
                 setActiveTab(1);
               }}
             >
@@ -225,7 +225,7 @@ useClickAway(containerRef, () => closeQRDropdown())
 
       {showQR ? (
         <QRCodeContainer 
-        onClick={()=>setDisplayQR(!displayQR)}
+        onClick={():void=>setDisplayQR(!displayQR)}
         style={{
           background:theme.default.bg,
           borderColor: theme.LinkMobileAppBorder,
