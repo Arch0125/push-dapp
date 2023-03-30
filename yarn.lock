@@ -4713,6 +4713,7 @@ __metadata:
     graphql: ^15.4.0
     graphql-request: ^3.4.0
     https-browserify: 1.0.0
+    husky: ^8.0.3
     image-size: 0.9.3
     ipfs-api: 26.1.2
     ipfs-http-client: ^57.0.3
@@ -4726,6 +4727,7 @@ __metadata:
     peerjs: ^1.4.7
     pica: ^9.0.1
     postcss-normalize: 10.0.1
+    prettier: ^2.8.7
     process: 0.11.10
     qrcode.react: ^3.1.0
     react: 17.0.2
@@ -16833,6 +16835,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"husky@npm:^8.0.3":
+  version: 8.0.3
+  resolution: "husky@npm:8.0.3"
+  bin:
+    husky: lib/bin.js
+  checksum: 837bc7e4413e58c1f2946d38fb050f5d7324c6f16b0fd66411ffce5703b294bd21429e8ba58711cd331951ee86ed529c5be4f76805959ff668a337dbfa82a1b0
+  languageName: node
+  linkType: hard
+
 "hyphenate-style-name@npm:^1.0.2, hyphenate-style-name@npm:^1.0.3":
   version: 1.0.4
   resolution: "hyphenate-style-name@npm:1.0.4"
@@ -24156,7 +24167,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.1.2":
+"prettier@npm:^2.1.2, prettier@npm:^2.8.7":
   version: 2.8.7
   resolution: "prettier@npm:2.8.7"
   bin:

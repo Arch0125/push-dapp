@@ -147,6 +147,8 @@
     "eslint-plugin-flowtype": "^4.6.0",
     "eslint-plugin-import": "2.26.0",
     "gh-pages": "^5.0.0",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.7",
     "process": "0.11.10",
     "react-app-rewired": "2.2.1",
     "speed-measure-webpack-plugin": "^1.5.0",
@@ -156,6 +158,7 @@
     "extends": "react-app"
   },
   "scripts": {
+    "format": "prettier --write $(git diff --cached --name-only --diff-filter=ACM '*.{js,ts,css,json,html}')",
     "deploy:alpha": "node build.mjs alpha && npm run build && echo 'alpha.push.org' > ./build/CNAME && gh-pages -d build -r https://github.com/ethereum-push-notification-service/push-dapp-alpha-deployment",
     "deploy:w2w": "node build.mjs w2w && npm run build && echo 'w2w.push.org' > ./build/CNAME && gh-pages -d build -r https://github.com/ethereum-push-notification-service/push-dapp-w2w-deployment",
     "deploy:dev": "node build.mjs dev && npm run build && echo 'dev.push.org' > ./build/CNAME && gh-pages -d build -r https://github.com/ethereum-push-notification-service/push-dapp-dev-deployment",
@@ -166,6 +169,11 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && git add ."
+    }
   },
   "packageManager": "yarn@3.4.1"
 }
